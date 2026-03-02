@@ -20,11 +20,13 @@ async def on_message(message):
         return
 
     data = {
-        "username": str(message.author),
-        "user_id": str(message.author.id),
-        "channel": str(message.channel),
-        "content": message.content
-    }
+    "username": str(message.author),
+    "user_id": str(message.author.id),
+    "channel_name": str(message.channel),
+    "channel_id": str(message.channel.id),
+    "message_id": str(message.id),
+    "content": message.content
+}
 
     requests.post(WEBHOOK_URL, json=data)
 
